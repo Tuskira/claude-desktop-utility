@@ -1,0 +1,76 @@
+name: Bug report
+description: Something in the interceptor isn't working as documented.
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to report a bug. Please don't include
+        gateway keys, CA private keys, captured traffic, or other sensitive
+        data anywhere below. Redact it from any logs you paste in.
+
+  - type: input
+    id: version
+    attributes:
+      label: Version or commit
+      description: The release tag or the commit SHA you built from.
+      placeholder: v0.1.0 / abc1234
+    validations:
+      required: true
+
+  - type: input
+    id: os
+    attributes:
+      label: Operating system
+      placeholder: macOS 26.5 (Apple silicon)
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: area
+    attributes:
+      label: Area affected
+      description: Select all that apply.
+      options:
+        - label: Proxy / TLS interception
+        - label: Capture output (JSONL, decode command)
+        - label: Forwarding to the gateway
+        - label: Background service install (LaunchAgent, Makefile)
+        - label: Documentation
+        - label: Not sure / other
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      description: The smallest sequence of steps that reproduces the problem.
+      placeholder: |
+        1. Run ...
+        2. Do ...
+        3. Observe ...
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+    validations:
+      required: true
+
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual behavior
+    validations:
+      required: true
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: Relevant logs or output
+      description: |
+        Paste relevant lines from the service log or terminal. Check there
+        are no keys, tokens, or captured request/response bodies before
+        posting.
+      render: shell

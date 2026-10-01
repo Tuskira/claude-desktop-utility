@@ -1,0 +1,4 @@
+# See CONTRIBUTING.md for how reviews and pull requests work.
+# Order matters: later patterns override earlier ones for matching paths.
+
+*    @avinash-tuskira

@@ -1,0 +1,43 @@
+{
+  "content": [
+    {
+      "id": "srvtoolu_01",
+      "input": {
+        "query": "weather today"
+      },
+      "name": "web_search",
+      "type": "server_tool_use"
+    },
+    {
+      "content": [
+        {
+          "encrypted_content": "abc123",
+          "page_age": "1 day ago",
+          "title": "Weather",
+          "type": "web_search_result",
+          "url": "https://example.com"
+        }
+      ],
+      "tool_use_id": "srvtoolu_01",
+      "type": "web_search_tool_result"
+    },
+    {
+      "text": "It's sunny today.",
+      "type": "text"
+    }
+  ],
+  "id": "msg_04",
+  "model": "claude-sonnet-5",
+  "role": "assistant",
+  "stop_reason": "end_turn",
+  "stop_sequence": null,
+  "type": "message",
+  "usage": {
+    "input_tokens": 15,
+    "output_tokens": 25,
+    "server_tool_use": {
+      "web_fetch_requests": 0,
+      "web_search_requests": 1
+    }
+  }
+}

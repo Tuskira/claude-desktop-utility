@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Label</key>
+	<string>com.tuskira.interceptor</string>
+	<key>ProgramArguments</key>
+	<array>
+		<string>__REPO__/bin/interceptor</string>
+		<string>run</string>
+		<string>--dir</string>
+		<string>__HOME__/.interceptor</string>
+		<string>--proxy-addr</string>
+		<string>127.0.0.1:9090</string>
+		<string>--out</string>
+		<string>__HOME__/claude-capture.jsonl</string>
+		<string>--gateway-url</string>
+		<string>__GATEWAY_URL__</string>
+		<string>--gateway-key-file</string>
+		<string>__HOME__/.interceptor/gateway.key</string>
+	</array>
+	<key>RunAtLoad</key>
+	<true/>
+	<key>KeepAlive</key>
+	<true/>
+	<key>ThrottleInterval</key>
+	<integer>5</integer>
+	<key>StandardOutPath</key>
+	<string>__HOME__/Library/Logs/interceptor.log</string>
+	<key>StandardErrorPath</key>
+	<string>__HOME__/Library/Logs/interceptor.log</string>
+</dict>
+</plist>

@@ -1,0 +1,30 @@
+{
+  "content": [
+    {
+      "payload": {
+        "a": 1,
+        "b": [
+          1,
+          2,
+          3
+        ]
+      },
+      "type": "future_widget_block",
+      "widget_id": "w_1"
+    },
+    {
+      "text": "done",
+      "type": "text"
+    }
+  ],
+  "id": "msg_05",
+  "model": "claude-sonnet-5",
+  "role": "assistant",
+  "stop_reason": "end_turn",
+  "stop_sequence": null,
+  "type": "message",
+  "usage": {
+    "input_tokens": 5,
+    "output_tokens": 8
+  }
+}

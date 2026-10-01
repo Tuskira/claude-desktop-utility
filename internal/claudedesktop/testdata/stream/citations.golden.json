@@ -1,0 +1,28 @@
+{
+  "content": [
+    {
+      "citations": [
+        {
+          "cited_text": "sky is blue",
+          "document_index": 0,
+          "document_title": "Doc",
+          "end_char_index": 11,
+          "start_char_index": 0,
+          "type": "char_location"
+        }
+      ],
+      "text": "The sky is blue.",
+      "type": "text"
+    }
+  ],
+  "id": "msg_03",
+  "model": "claude-sonnet-5",
+  "role": "assistant",
+  "stop_reason": "end_turn",
+  "stop_sequence": null,
+  "type": "message",
+  "usage": {
+    "input_tokens": 50,
+    "output_tokens": 12
+  }
+}

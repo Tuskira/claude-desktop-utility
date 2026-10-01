@@ -1,0 +1,11 @@
+Claude Desktop Utility
+Copyright 2026 Tuskira, Inc.
+
+This product includes software developed at Tuskira (https://tuskira.ai).
+Licensed under the Apache License, Version 2.0; see LICENSE.
+
+Tuskira is a trademark of Tuskira, Inc. Contact info@tuskira.ai for
+trademark questions.
+
+This product is built with the Go standard library only and bundles no
+third-party components.

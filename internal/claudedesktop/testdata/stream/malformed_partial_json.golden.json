@@ -1,0 +1,20 @@
+{
+  "content": [
+    {
+      "id": "toolu_07",
+      "input": {},
+      "name": "run",
+      "type": "tool_use"
+    }
+  ],
+  "id": "msg_07",
+  "model": "claude-sonnet-5",
+  "role": "assistant",
+  "stop_reason": "tool_use",
+  "stop_sequence": null,
+  "type": "message",
+  "usage": {
+    "input_tokens": 5,
+    "output_tokens": 9
+  }
+}

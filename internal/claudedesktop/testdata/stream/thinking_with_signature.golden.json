@@ -1,0 +1,23 @@
+{
+  "content": [
+    {
+      "signature": "sig_abcdef123",
+      "thinking": "Let me work through this step by step.",
+      "type": "thinking"
+    },
+    {
+      "text": "The answer is 42.",
+      "type": "text"
+    }
+  ],
+  "id": "msg_02",
+  "model": "claude-sonnet-5",
+  "role": "assistant",
+  "stop_reason": "end_turn",
+  "stop_sequence": null,
+  "type": "message",
+  "usage": {
+    "input_tokens": 10,
+    "output_tokens": 30
+  }
+}
