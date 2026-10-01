@@ -5,3 +5,4 @@ bin/
 *.key
 *.batch.gz
 spool/
+!internal/claudedesktop/testdata/stream/*.jsonl

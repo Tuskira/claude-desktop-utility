@@ -4,13 +4,11 @@
 //
 // It never blocks the proxy: Convert does only in-memory parsing and
 // bookkeeping, recovers its own panics, and counts (rather than surfaces)
-// every record it cannot make sense of. See doc/design/interceptor-ingest.md
-// section 5.1 in the ai-agent-gateway repo for the design this
-// implements.
+// every record it cannot make sense of.
 package claudedesktop
 
 // LLMCallIn is one LLM call record, field for field per the ingest API
-// contract (gateway repo, docs/design/interceptor-ingest.md section 3).
+// contract (gateway repo, docs/api.md, Ingest section).
 // Bodies are plain strings of JSON or text, never base64.
 type LLMCallIn struct {
 	// Required.

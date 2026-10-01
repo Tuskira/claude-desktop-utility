@@ -242,7 +242,7 @@ func cmdRun(args []string) error {
 	ctx, stop := signal.NotifyContext(context.Background(), os.Interrupt, syscall.SIGTERM)
 	defer stop()
 
-	// Claude Desktop -> gateway forwarding (design section 5). --gateway-url
+	// Claude Desktop -> gateway forwarding. --gateway-url
 	// is required (checked above), so this always runs: every capture
 	// record flows through claudedesktop.Converter (turns Code/Chat tab
 	// traffic into gateway-shaped records) into forward.Forwarder (batches,

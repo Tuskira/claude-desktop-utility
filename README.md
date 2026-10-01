@@ -20,6 +20,8 @@ creating a gateway key, installing the background service, and pointing Claude D
 To run the CLI directly instead (for scripting, or to point it at some other app):
 
 ```sh
+git clone https://github.com/Tuskira/claude-desktop-utility.git
+cd claude-desktop-utility
 make build                            # -> ./bin/interceptor
 ./bin/interceptor ca init             # writes ~/.interceptor/ca.pem and ca-key.pem
 sudo security add-trusted-cert -d -r trustRoot -k /Library/Keychains/System.keychain ~/.interceptor/ca.pem
@@ -78,8 +80,9 @@ may still use HTTP/2.
 The interceptor turns Claude Desktop's Code tab and Chat tab traffic into gateway-shaped LLM call
 and access log records and pushes them to the gateway's `POST /api/v1/ingest`. Every other app's
 traffic, and non-Code/Chat Claude Desktop traffic (presence, heartbeats, telemetry, ...), is
-proxied exactly as before but never forwarded. See `docs/design/interceptor-ingest.md` in the
-`ai-agent-gateway` repo for the full design.
+proxied exactly as before but never forwarded. The gateway's `POST /api/v1/ingest` contract is
+documented in the ai-agent-gateway repository's
+[docs/api.md](https://github.com/Tuskira/ai-agent-gateway/blob/main/docs/api.md) (Ingest section).
 
 - The Claude account email is read automatically from a captured sign-in response; `--forward-user`
   overrides it.

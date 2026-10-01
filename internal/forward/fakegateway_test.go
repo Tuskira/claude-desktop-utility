@@ -10,8 +10,8 @@ import (
 	"testing"
 )
 
-// Strict mirrors of the ingest API contract, docs/design/interceptor-ingest.md
-// section 3 in the gateway repo. Deliberately NOT reusing
+// Strict mirrors of the ingest API contract, docs/api.md (Ingest
+// section) in the gateway repo. Deliberately NOT reusing
 // claudedesktop.Batch/LLMCallIn/AccessLogIn: decoding into a second,
 // independently-written struct with DisallowUnknownFields means a field
 // added to (or renamed in) the production types without updating this file,

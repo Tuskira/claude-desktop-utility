@@ -1,7 +1,6 @@
 // Package forward sends the interceptor's converted Claude Desktop records
-// (see internal/claudedesktop) to the gateway's POST /api/v1/ingest, per
-// docs/design/interceptor-ingest.md sections 3 and 5.2 in the
-// ai-agent-gateway repo.
+// (see internal/claudedesktop) to the gateway's POST /api/v1/ingest; the contract
+// is in the ai-agent-gateway repo's docs/api.md.
 //
 // A Forwarder implements claudedesktop.Sink: LLMCall and AccessLog redact
 // the record and enqueue it, both non-blocking, so they are safe to call
@@ -63,9 +62,8 @@ type Config struct {
 	Logf      func(format string, args ...any)
 }
 
-// Counters are cumulative, process-lifetime, per the status line design
-// wants: "every 60 seconds, log counts of sent, duplicate, rejected,
-// dropped, and spooled records."
+// Counters are cumulative and process-lifetime; the status line logs them
+// every 60 seconds (sent, duplicate, rejected, dropped, and spooled records).
 type Counters struct {
 	Sent      atomic.Int64 // accepted by the gateway (llm_calls + access_logs)
 	Duplicate atomic.Int64 // gateway-reported duplicates
@@ -221,8 +219,8 @@ func (f *Forwarder) AccessLog(a claudedesktop.AccessLogIn) {
 }
 
 // push enqueues it, dropping the oldest queued item if the queue is full.
-// Never blocks (design: "a bounded in-memory queue that never blocks the
-// proxy, dropping oldest records and counting the drops").
+// Never blocks: the queue is bounded and never stalls the proxy, dropping
+// the oldest records and counting the drops.
 func (f *Forwarder) push(it item) {
 	for {
 		select {
@@ -332,9 +330,8 @@ func (f *Forwarder) encode(batch []item) ([]byte, int, error) {
 	return buf.Bytes(), len(batch), nil
 }
 
-// outcome classifies one send() result. The three cases mirror the design's
-// three branches exactly: design section 5.2's "on 429 or 503 or a network
-// error, ... keeping the spool", "on 400, log it and drop that batch", and
+// outcome classifies one send() result into three cases: on 429, 503 or a
+// network error, keep the spool; on 400, log it and drop that batch; and
 // success.
 type outcome int
 
@@ -514,8 +511,8 @@ func truncateForLog(b []byte) string {
 const ingestPath = "/api/v1/ingest"
 
 // backoffState implements exponential backoff with jitter for the spool
-// retry loop, per design: "on 429 or 503 or a network error, exponential
-// backoff with jitter, keeping the spool."
+// retry loop: on 429, 503 or a network error, back off exponentially with
+// jitter and keep the spool.
 type backoffState struct {
 	mu     sync.Mutex
 	cur    time.Duration

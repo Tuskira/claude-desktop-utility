@@ -118,7 +118,7 @@ func (c *Converter) Handle(rec *capture.Record) {
 }
 
 // emitLLMCall fills in the fields common to every Code/Chat tab LLM record
-// (design section 5.1, "Common fields") and hands the record to the sink.
+// and hands the record to the sink.
 func (c *Converter) emitLLMCall(call LLMCallIn) {
 	call.ClientName = "claude-desktop"
 	call.Provider = "anthropic"

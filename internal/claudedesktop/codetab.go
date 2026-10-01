@@ -15,8 +15,8 @@ package claudedesktop
 // entry.
 //
 // One LLM record is emitted per message_start...message_stop. Its
-// timestamp is "when the triggering user message or tool result was sent"
-// (design section 5.1): tracked here as the session's lastTriggerAt, updated
+// timestamp is "when the triggering user message or tool result was sent",
+// tracked here as the session's lastTriggerAt, updated
 // on every user-message POST to its /events endpoint and on every
 // tool_result the subscribe socket echoes back (verified Sep 30, 2026: in
 // the Code tab the tools run remotely, so tool results arrive only as WS
@@ -484,8 +484,8 @@ func (c *Converter) handleAssistantMessage(sess *codeSession, body []byte, ts ti
 	}
 }
 
-// classifyTool splits a tool name into a connector ID and tool name, per
-// design section 5.1: "<connector-uuid>:getJiraIssue" or
+// classifyTool splits a tool name into a connector ID and tool name:
+// "<connector-uuid>:getJiraIssue" or
 // "mcp__<server>__<tool>". A name with neither shape is a built-in tool
 // (Bash, Edit, Skill, ...) and is skipped, except Skill, which gets its own
 // record with skill_name set instead of connector_id/tool_name.

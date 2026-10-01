@@ -11,13 +11,13 @@ import (
 )
 
 // spool persists gzip-compressed ingest batches on disk so they survive a
-// restart or a gateway outage, per design section 5.2: "a disk spool",
-// "500 MB or 7 days, dropping the oldest".
+// restart or a gateway outage. It is capped at 500 MB or 7 days, dropping
+// the oldest.
 type spool struct {
 	dir string
 }
 
-// spoolMaxBytes and spoolMaxAge are the design's "500 MB or 7 days"; they
+// spoolMaxBytes and spoolMaxAge are the 500 MB / 7 day caps; they
 // are vars, not consts, only so tests can shrink them instead of writing
 // hundreds of megabytes or waiting a week to exercise EnforceCap.
 var (
