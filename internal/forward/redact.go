@@ -6,7 +6,7 @@ import (
 	"strings"
 )
 
-// Redaction (design section 5.2, "always on, not configurable off"),
+// Redaction (always on, not configurable off),
 // applied to every record before it is queued (see Forwarder.LLMCall /
 // Forwarder.AccessLog), so spooled files on disk are already redacted.
 
@@ -62,8 +62,7 @@ func stripKey(v any, key string) {
 }
 
 // sensitiveHeaderNames are dropped outright; any other header whose name
-// contains one of these substrings is also dropped (design: "any header
-// containing token, session, or key").
+// contains one of these substrings (token, session, key) is also dropped.
 var sensitiveHeaderNames = map[string]bool{
 	"cookie":              true,
 	"set-cookie":          true,

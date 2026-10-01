@@ -11,7 +11,7 @@ var hostsWeHandle = map[string]bool{
 }
 
 // droppedPathSubstrings: a request whose URL path contains any of these is
-// telemetry/polling noise, per the design's "drop entirely" list. Matched
+// telemetry/polling noise that is dropped entirely. Matched
 // as a case-insensitive substring of the path, which is simpler and no less
 // precise than exact routes here because these substrings are specific
 // enough not to collide with the endpoints we do handle.
@@ -56,7 +56,7 @@ func isDroppedPath(path string) bool {
 
 // wsKeepAliveTypes are Claude Desktop's WebSocket keep-alive message types,
 // both directions. Bodies for these are otherwise valid JSON we could parse,
-// but the design says to drop them entirely.
+// but they are dropped entirely.
 var wsKeepAliveTypes = map[string]bool{
 	"hb":         true,
 	"hb_ack":     true,

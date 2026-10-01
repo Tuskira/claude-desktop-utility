@@ -11,8 +11,7 @@ import (
 // idLike checks whether a path segment is "an ID": either a short
 // alphabetic prefix (e.g. "cse", "session", "msg", "toolu") followed by an
 // underscore and a generated tail, or a bare UUID. Used to replace IDs with
-// "{id}" in the path field, per the design ("path has IDs replaced with
-// {id}").
+// "{id}" in the path field.
 // at all: it must contain a digit and be at least 6 characters, or be a
 // dotted UUID. This avoids mangling ordinary path words like "sessions" or
 // "events".
@@ -56,8 +55,8 @@ func icpRequestID(messageID string) string {
 }
 
 // icpChatRequestID builds the "icp_chat_" + stable-ID request_id used for
-// Chat tab LLM records, per the design's "icp_chat_ plus a stable ID from
-// the stream, or a hash of the conversation ID and block ID".
+// Chat tab LLM records: "icp_chat_" plus a stable ID from the stream, or a
+// hash of the conversation ID and block ID.
 func icpChatRequestID(stableID string) string {
 	if stableID == "" {
 		return ""
