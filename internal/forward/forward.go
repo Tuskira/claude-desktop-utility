@@ -1,7 +1,6 @@
 // Package forward sends the interceptor's converted Claude Desktop records
-// (see internal/claudedesktop) to the gateway's POST /api/v1/ingest, per
-// docs/design/interceptor-ingest.md sections 3 and 5.2 in the
-// ai-agent-gateway repo.
+// (see internal/claudedesktop) to the gateway's POST /api/v1/ingest; the contract
+// is in the ai-agent-gateway repo's docs/api.md.
 //
 // A Forwarder implements claudedesktop.Sink: LLMCall and AccessLog redact
 // the record and enqueue it, both non-blocking, so they are safe to call

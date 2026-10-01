@@ -24,10 +24,14 @@ gateway URL and someone able to create a gateway API key for you (Part 3).
 ## Part 1: build
 
 ```sh
-cd /path/to/interceptor && make build
+git clone https://github.com/Tuskira/claude-desktop-utility.git
+cd claude-desktop-utility
+make build
 ```
 
-You should see `bin/interceptor` created.
+You should see `bin/interceptor` created. Run every remaining command in this guide (`./bin/interceptor`,
+`make install-agent`, `make uninstall-agent`, and the `deploy/macos/...` paths) from this
+`claude-desktop-utility` directory.
 
 ## Part 2: create and trust the CA
 
@@ -255,5 +259,5 @@ Run these in order to return to your normal setup.
    rm -rf ~/.interceptor ~/claude-capture.jsonl ~/Library/Logs/interceptor.log
    ```
 
-The interceptor code and the files in this folder stay in the repo. To start again later, begin at
+The code and the files in this folder stay in your `claude-desktop-utility` clone. To start again later, begin at
 Part 1.
